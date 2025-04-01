@@ -125,6 +125,7 @@
   fonts.packages = with pkgs; [
    mononoki
    font-awesome
+   cmu-serif
   ];
 
 
