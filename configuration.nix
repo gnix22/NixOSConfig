@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./packages.nix      
+      ./modules/hardware-configuration.nix
+      ./modules/packages.nix      
       ./modules/configurations
       # add homemanager
       <home-manager/nixos>
@@ -125,7 +125,6 @@
   fonts.packages = with pkgs; [
    mononoki
    font-awesome
-   cmu-serif
   ];
 
 
