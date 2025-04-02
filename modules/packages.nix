@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
 	# utilities
-	neovim
+	#neovim
 	udiskie
 
 	# hyprland

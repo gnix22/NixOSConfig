@@ -6,5 +6,6 @@
     ./waybar.nix
     ./git.nix
     ./neovim.nix
+    ./fuzzel.nix
   ];
 }

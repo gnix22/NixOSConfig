@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./modules/hardware-configuration.nix
-      ./modules/packages.nix      
+      ./modules/packages.nix
       ./modules/configurations
       # add homemanager
       <home-manager/nixos>
@@ -16,7 +16,7 @@
     ];
   
   #home manager
-	
+
   home-manager.users.gnix = {pkgs, ...}: {
     home.stateVersion = "24.11";
   };
