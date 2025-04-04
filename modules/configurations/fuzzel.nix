@@ -13,7 +13,7 @@
         };
         
         colors = {
-          background = "#6699CC00";
+          background = "#ff6ec7aa";
           text = "#ffffffff";
           prompt = "#ffffffff";
         };

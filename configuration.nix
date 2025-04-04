@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./modules/hardware-configuration.nix
       ./modules/packages.nix
+      # this is for trying to get hyprland to work
+      ./hyprland.nix
       ./modules/configurations
       # add homemanager
       <home-manager/nixos>
@@ -21,8 +23,7 @@
     home.stateVersion = "24.11";
   };
 
-
-
+  programs.hyprland.enable = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -103,8 +104,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-
-  programs.hyprland.enable = true; # enable hyprland
+  # for testing, can disable for now since gnome enabled
+  #programs.hyprland.enable = true; # enable hyprland
  
   # enable udisk2 wrappers
   services.udisks2.enable = true;
