@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, ... }:
 
 {
   #####################
@@ -17,10 +17,15 @@
 	kitty 
 	wofi
 	hyprpaper # wallpaper things
+  hyprcursor # for cursors coolio stuff
+  rose-pine-hyprcursor
 	lsd
+
+  # sound extras
+  alsa-utils
 
 	# note taking and such
 	obsidian
-        vscode
+  vscode
   ];  
 }

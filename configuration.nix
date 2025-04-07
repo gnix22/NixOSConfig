@@ -72,11 +72,15 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # test, remove if no fix
+  hardware.enableAllFirmware = true;
+  boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    audio.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -103,21 +107,23 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # for testing, can disable for now since gnome enabled
-  #programs.hyprland.enable = true; # enable hyprland
  
   # enable udisk2 wrappers
   services.udisks2.enable = true;
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   
+
   environment.systemPackages = with pkgs; [
    # back up items
    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    lf
+   # install pipewire and pulse to test since no pactl
+   pipewire
+   pulseaudio
+   ffmpeg
+   mpv
    #wget
   ];
 

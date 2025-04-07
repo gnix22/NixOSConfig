@@ -19,7 +19,9 @@
 
       settings = {
         "$mod" = "SUPER";
-        
+
+        xwayland.force_zero_scaling = true; 
+
         monitor = [
           ", 1920x1080, auto, 1"
         ];
@@ -28,13 +30,12 @@
           "hyprpaper"
           "kitty"
           "udiskie"
-        ];
-
-        xwayland.force_zero_scaling = true;
+        ]; 
 
         env = [
-          "GDK_SCALE, 2"
-          "XCURSOR_SIZE, 22"
+          "GDK_SCALE, 1"
+          "HYPRCURSOR_THEME, rose-pine-hyprcursor"
+          "HYPRCURSOR_SIZE, 20"
         ];
 
         windowrulev2 = [
