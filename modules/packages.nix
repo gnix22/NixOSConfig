@@ -23,9 +23,13 @@
 
   # sound extras
   alsa-utils
+  cava
 
 	# note taking and such
 	obsidian
   vscode
+
+  # fun things 
+  cmatrix
   ];  
 }

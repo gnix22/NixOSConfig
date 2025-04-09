@@ -124,6 +124,9 @@
    pulseaudio
    ffmpeg
    mpv
+   # obs for recording assignments
+   obs-studio
+   pavucontrol
    #wget
   ];
 
@@ -131,6 +134,7 @@
 
   fonts.packages = with pkgs; [
    mononoki
+   fira-code-nerdfont
    font-awesome
   ];
 
