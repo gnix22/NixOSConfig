@@ -11,5 +11,7 @@ pkgs.mkShell {
     scikit-learn
     seaborn
     sympy
+    platformdirs
+    pyyaml
   ];
 }

@@ -8,6 +8,7 @@
 {
   environment.systemPackages = with pkgs; [
     brightnessctl
+    neovim
     grim
     slurp
   ];

@@ -17,6 +17,7 @@
         }
 
         window#waybar {
+          color: @base;
           background: transparent;
         }
 
@@ -50,10 +51,12 @@
 
 	      #battery {
 	        color: @base;
+          padding: 2px;
         }	
 
         #network {
           color: @base;
+          padding: 2px;
         }
 
         #custom-nix {
@@ -64,6 +67,7 @@
 
         #custom-power {
           color: @base;
+          padding: 2px;
         }
         
         #clock {
@@ -72,6 +76,7 @@
 
         #pulseaudio {
           color: @base;
+          padding: 2px;
         }
 
         #workspaces button.active {
@@ -100,8 +105,11 @@
 
         modules-right = [
           "pulseaudio"
+          "custom/sep"
           "network"
+          "custom/sep"
           "battery"
+          "custom/sep"
           "custom/power"
         ];
 
@@ -136,12 +144,16 @@
            reboot = "reboot";
            };
         };
+        
+        "custom/sep" = {
+          format = "//";
+        };
 
         network = {
            format-wifi = "wi-fi {bandwidthDownBits}" ;
            format-disconnected = "err: no wi-fi ";
            format-ethernet = "ethernet {bandwidthDownBits}";
-           #on-click = "hyprctl dispatch exec '[float; size 80%] kitty nmtui connect'";
+           on-click = "hyprctl dispatch exec '[float; size 80%] kitty nmtui connect'";
            tooltip = false;
            interval = 5;
         };

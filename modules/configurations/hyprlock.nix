@@ -51,9 +51,9 @@
 
           image = {
             monitor = "";
-            path = "${../../assets/wallpapers/7598770779701100266.jpg}";
-            size = 70;
-
+            path = "${../../assets/wallpapers/cowboypfp.jpg}";
+            size = 100;
+            rounding = -1;
             halign = "center";
             valign = "bottom";
 

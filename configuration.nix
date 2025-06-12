@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, config, lib, ... }:
+{ pkgs, inputs, config, lib, ... }:
 
 {
   imports =
@@ -13,7 +13,7 @@
       ./hyprland.nix
       ./modules/configurations
       # add homemanager
-      <home-manager/nixos>
+      inputs.home-manager.nixosModules.default
       # no idea how to get hm to work
     ];
   
@@ -28,7 +28,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "junimo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -60,8 +60,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -76,7 +76,7 @@
   hardware.enableAllFirmware = true;
   boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ];
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -100,9 +100,6 @@
     isNormalUser = true;
     description = "Garrett";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Install firefox.
@@ -124,17 +121,20 @@
    pulseaudio
    ffmpeg
    mpv
+   usbutils
+   udiskie
    # obs for recording assignments
    obs-studio
    pavucontrol
    #wget
   ];
 
+  programs.steam.enable = true;
   #---Fonts---#
 
   fonts.packages = with pkgs; [
    mononoki
-   fira-code-nerdfont
+   nerd-fonts.fira-code
    font-awesome
   ];
 

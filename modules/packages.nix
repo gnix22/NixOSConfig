@@ -11,7 +11,6 @@
   environment.systemPackages = with pkgs; [
 	# utilities
 	#neovim
-	udiskie
 
 	# hyprland
 	kitty 
@@ -24,7 +23,7 @@
   # sound extras
   alsa-utils
   cava
-
+  rockbox-utility
 	# note taking and such
 	obsidian
   vscode
