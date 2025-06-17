@@ -6,6 +6,10 @@
 }:
 
 {
+  imports = [
+    ./components
+  ];
+
   environment.systemPackages = with pkgs; [
     brightnessctl
     neovim

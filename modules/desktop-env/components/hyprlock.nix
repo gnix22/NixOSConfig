@@ -15,7 +15,7 @@
         settings = {
           background = {
             monitor = "";
-            path = "${../../assets/wallpapers/a_colorful_buildings_with_power_lines.jpg}";
+            path = "${../../../assets/wallpapers/a_colorful_buildings_with_power_lines.jpg}";
 
             blur_passes = 2;
           };
@@ -51,7 +51,7 @@
 
           image = {
             monitor = "";
-            path = "${../../assets/wallpapers/cowboypfp.jpg}";
+            path = "${../../../assets/wallpapers/cowboypfp.jpg}";
             size = 100;
             rounding = -1;
             halign = "center";

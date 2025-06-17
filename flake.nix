@@ -11,10 +11,16 @@
 
   outputs = { nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-      junimo = nixpkgs.lib.nixosSystem {
+      ovata = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [ 
+          ./hosts/ovata.nix
+        ];
+      };
+      grandiflora = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./configuration.nix
+
         ];
       };
     };
