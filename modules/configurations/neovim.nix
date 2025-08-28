@@ -15,6 +15,10 @@
         pyright
         rust-analyzer
 
+        # Latex
+        texlive.combined.scheme-full
+        zathura
+
         # Clipboard support
         xclip
         wl-clipboard
@@ -37,6 +41,11 @@
 
           -- Enable Mouse
           vim.opt.mouse = 'a'
+
+          -- Vimtex Options
+          vim.g.vimtex_view_method = "zathura"
+          vim.g.vimtex_compiler_method = "latexmk"
+          vim.g.vimtex_quickfix_mode = 2
 
           -- Tabs
           vim.opt.tabstop = 4
@@ -114,6 +123,14 @@
       plugins =
         with pkgs.vimPlugins;
         [
+          {
+            plugin = vimtex;
+            type = "lua";
+            config /*lua*/ =
+            ''
+
+            '';
+          }
           {
             plugin = telescope-nvim;
             type = "lua";

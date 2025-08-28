@@ -22,12 +22,12 @@
 
           input-field = {
             monitor = "";
-            size = "75%, 75%";
+            size = "10%, 10%";
             fade_on_empty = false;
 
             halign = "center";
             valign = "center";
-            position = "0, -5%";
+            position = "0, 0";
 
             outer_color = accent;
             inner_color = base;
@@ -55,7 +55,8 @@
             size = 100;
             rounding = -1;
             halign = "center";
-            valign = "bottom";
+            valign = "center";
+            position = "0,-100";
 
             border_color = accent;
           };
