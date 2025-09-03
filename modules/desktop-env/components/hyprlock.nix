@@ -56,7 +56,7 @@
             rounding = -1;
             halign = "center";
             valign = "center";
-            position = "0,-100";
+            position = "0,-150";
 
             border_color = accent;
           };
