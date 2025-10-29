@@ -134,7 +134,7 @@
         };
 
         "custom/power" = {
-           format = "⏻ ";
+           format = " ";
            tooltip = false;
            menu = "on-click";
            menu-file = "${./power-menu.xml}";
@@ -146,11 +146,11 @@
         };
         
         "custom/sep" = {
-          format = "<\-/\->";
+          format = " --//-- ";
         };
 
         network = {
-           format-wifi = "wi-fi {bandwidthDownBits}" ;
+           format-wifi = "  {bandwidthDownBits}" ;
            format-disconnected = "err: no wi-fi ";
            format-ethernet = "ethernet {bandwidthDownBits}";
            on-click = "hyprctl dispatch exec '[float; size 80%] kitty nmtui connect'";
@@ -159,7 +159,8 @@
         };
 
         pulseaudio = {
-          format = "vol. {volume}%";
+          format = "  {volume}%";
+          format-muted = "  muted";
         };
 
       };

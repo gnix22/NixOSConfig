@@ -18,10 +18,10 @@
               ndigits = 2;
             };
             bar = {
-              charElapsed = "=";
+              char.elapsed = "=";
               charTotal = "-";
-              borderLeft = "[";
-              borderRight = "]";
+              border.left = "[";
+              border.right = "]";
             };
             percent = {
               type = 1;
