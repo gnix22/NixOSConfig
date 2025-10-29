@@ -127,7 +127,7 @@
            mode = "month";
            mode-mon-col = 3;
            };
-           actions = {            
+           actions = {
            on-click = "mode";
            };
            interval = 1;
@@ -146,7 +146,7 @@
         };
         
         "custom/sep" = {
-          format = "//";
+          format = "<\-/\->";
         };
 
         network = {

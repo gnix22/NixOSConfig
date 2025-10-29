@@ -6,5 +6,6 @@ mkShell {
      gnumake
      libgcc
      python3
+     ncurses
   ];
 }

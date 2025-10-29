@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
 	# utilities
 	#neovim
+  gdb
 
 	# hyprland
 	kitty 
