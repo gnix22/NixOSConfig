@@ -7,13 +7,13 @@
 
       settings = {
         main = {
-          font = "mononoki:size 8";
+          font = "GohuFont:size 8";
           icon-theme = "Papirus-Dark";
 
         };
         
         colors = {
-          background = "#ff6ec7aa";
+          background = "#0000000a";
           text = "#ffffffff";
           prompt = "#ffffffff";
         };
