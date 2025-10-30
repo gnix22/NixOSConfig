@@ -54,6 +54,7 @@
           border: 3px solid @acc;
           border-radius: 10px;
         }
+
         #battery {
           color: @base;
           padding: 2px;
