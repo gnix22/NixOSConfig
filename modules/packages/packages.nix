@@ -20,7 +20,7 @@
   hyprcursor # for cursors coolio stuff
   rose-pine-hyprcursor
 	lsd
-
+  wezterm
   # sound extras
   alsa-utils
   cava

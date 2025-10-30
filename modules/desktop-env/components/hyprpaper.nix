@@ -7,7 +7,7 @@
 
       settings =
         let
-          wp-path = "${../../../assets/wallpapers/a_video_game_screen_with_trees_and_bushes.jpg}";
+          wp-path = "${../../../assets/wallpapers/a_colorful_buildings_with_power_lines.jpg}";
         in
         {
           preload = [

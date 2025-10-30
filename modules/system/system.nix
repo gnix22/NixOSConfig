@@ -104,7 +104,7 @@
   #---Fonts---#
 
   fonts.packages = with pkgs; [
-   nerd-fonts.gohufont
+   gohufont
    mononoki
    nerd-fonts.fira-code
    font-awesome

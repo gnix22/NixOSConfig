@@ -33,7 +33,7 @@
 
         exec-once = [
           "hyprpaper"
-          "kitty"
+          "wezterm"
           "udiskie"
         ]; 
 
@@ -95,7 +95,7 @@
           # General
           "$mod, C, killactive"
           "Alt_L, Space, exec, fuzzel"
-          "$mod, Q, exec, kitty"
+          "$mod, Q, exec, wezterm"
           "$mod, M, exit"
           "$mod, O, exec, obsidian"
 

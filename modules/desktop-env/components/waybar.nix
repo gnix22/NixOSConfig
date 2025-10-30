@@ -13,7 +13,7 @@
         @define-color text rgba(255,255,255, 1);
 
         * {
-          font-family: mononoki;
+          font-family: GohuFont;
         }
 
         window#waybar {
