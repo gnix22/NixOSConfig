@@ -9,7 +9,7 @@
 
       style = ''
         @define-color base rgba(255,255,255, 1);
-        @define-color acc  rgba(207, 125, 212, 1);
+        @define-color acc  rgba(0, 0, 1, 0.25);
         @define-color text rgba(255,255,255, 1);
 
         * {
@@ -21,11 +21,17 @@
           background: transparent;
         }
 
-        .modules-left,
+        .modules-left {
+          border-radius: 12px;
+          background: @acc;
+          padding: 0 8px;
+
+        }
+
         .modules-right,
         .modules-center {
           border-radius: 12px;
-          background: rgba(207, 125, 212, 0.5);
+          background: transparent;
           padding: 0 8px;
         }
 
@@ -38,7 +44,7 @@
           background: transparent;
           border-radius: 8px;
         }
-        
+
         tooltip {
           color: @text;
           background: @base;
@@ -48,11 +54,10 @@
           border: 3px solid @acc;
           border-radius: 10px;
         }
-
-	      #battery {
-	        color: @base;
+        #battery {
+          color: @base;
           padding: 2px;
-        }	
+        }
 
         #network {
           color: @base;
@@ -69,7 +74,7 @@
           color: @base;
           padding: 2px;
         }
-        
+
         #clock {
           color: @base;
         }

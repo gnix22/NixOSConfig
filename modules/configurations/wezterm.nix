@@ -10,7 +10,7 @@
         return {
           font = wezterm.font("GohuFont"),
           font_size = 12,
-          default_prog = { "bash", "--login" },
+          default_prog = { "bash" },
         }
       '';
     };
