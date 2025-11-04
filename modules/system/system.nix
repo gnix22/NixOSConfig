@@ -108,6 +108,7 @@
    mononoki
    nerd-fonts.fira-code
    font-awesome
+   eb-garamond-fonts
   ];
 
   #experimental some such

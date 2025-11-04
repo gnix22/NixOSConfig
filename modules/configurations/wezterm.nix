@@ -34,7 +34,7 @@
 
         }
         -- gets program to load .bashrc
-        default_prog = {"bash"}
+        config.default_prog = {"bash"}
         return config
       '';
     };
