@@ -289,11 +289,11 @@
             type = "lua";
             config /*lua*/ =
               ''
-                require'lspconfig'.clangd.setup{}
-                require'lspconfig'.jdtls.setup{}
-                require'lspconfig'.nixd.setup{}
-                require'lspconfig'.pyright.setup{}
-                require'lspconfig'.rust_analyzer.setup{}
+                vim.lsp.enable('clangd')
+                vim.lsp.enable('jdtls')
+                vim.lsp.enable('nixd')
+                vim.lsp.enable('pyright')
+                vim.lsp.enable('rust_analyzer')
 
                 map('n', '<leader>d', function()
                   vim.diagnostics.open_float(nil, { focusable = false })

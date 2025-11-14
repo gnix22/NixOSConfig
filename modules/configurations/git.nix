@@ -1,7 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home-manager.users.gnix = {
+    home.packages = with pkgs; [
+      git-filter-repo
+    ];
     programs.git = {
       enable = true;
       userName = "gnix22";
