@@ -47,7 +47,7 @@
 
         tooltip {
           color: @text;
-          background: @base;
+          background: transparent;
 
           padding: 5px;
 
@@ -82,7 +82,7 @@
 
         #clock calendar {
           color: rgba(255, 255, 255, 1);
-          background: rgba(0, 0, 0, 0.8);
+          background: transparent;
         }
 
         #clock calendar:selected {
