@@ -246,15 +246,18 @@
                 local cmp = require'cmp'
 
                 cmp.setup({
+                  window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                  }
                   snippet = {
                     expand = function(args)
                       vim.fn["UltiSnips#Anon"](args.body)
                     end,
                   },
                   mapping = cmp.mapping.preset.insert ({
-                     ['<C-n>'] = cmp.mapping.select_next_item(),
-                     ['<C-p>'] = cmp.mapping.select_prev_item(),
-                     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Tab>'] = cmp.mapping.select_next_item(),
+                    ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
                   }),
                   sources = cmp.config.sources ({
                     { name = 'nvim_lsp'},
