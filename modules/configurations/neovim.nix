@@ -28,7 +28,6 @@
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
-
       ### General config ###
       extraLuaConfig /*lua*/ =
         ''
