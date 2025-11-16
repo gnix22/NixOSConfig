@@ -1,0 +1,55 @@
+# Inline math
+snippet mm "Inline math" A
+$${1}$`!p
+if t[1] and t[1][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+# Equation environment
+snippet nn "New equation environment" A
+\begin{equation}
+    ${1}
+\end{equation}
+$0
+endsnippet
+
+# Fraction
+snippet ff "Fraction" A
+\frac{${1}}{${2}}$0
+endsnippet
+
+# Boilerplate tex document
+snippet doctemplate "Document template" b
+\documentclass[${1:12pt}]{${2:article}}
+
+\usepackage{graphicx} % Use this package to include images
+\usepackage{amsmath} % A library of many standard math expressions
+\usepackage[margin=1in]{geometry}% Sets 1in margins. 
+\usepackage{fancyhdr} % Creates headers and footers
+\usepackage{enumerate}  %These two package give custom labels to a list
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsthm} % for theorem style environments for question and answers for readablity
+
+\geometry{margin=${3:1in}}
+
+\newtheorem*{thm}{Theorem}
+\theoremstyle{definition}
+\newtheorem*{q}{Question}
+\newtheorem*{ans}{Answer}
+
+\title{${4:Title}}
+\author{${5:Author}}
+\date{${6:\today}}
+
+\begin{document}
+
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
