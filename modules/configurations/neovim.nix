@@ -72,7 +72,19 @@
           vim.o.sidescrolloff = 8
 
           -- Text Wrapping
-          vim.o.wrap = false
+          -- vim.o.wrap = false
+
+          -- Visual wrapping for semantic line breaks
+          vim.opt.wrap = true
+          vim.opt.linebreak = true
+          vim.opt.breakindent = true
+          vim.opt.showbreak = '↪ '
+
+          -- Navigate by display lines
+          vim.keymap.set('n', 'j', 'gj')
+          vim.keymap.set('n', 'k', 'gk')
+          vim.keymap.set('n', 'gj', 'j')
+          vim.keymap.set('n', 'gk', 'k')
 
           -- Transparent Background
           vim.cmd.highlight({ "Normal", "guibg=NONE", "ctermbg=NONE" })

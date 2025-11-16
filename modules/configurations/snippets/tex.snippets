@@ -1,4 +1,6 @@
-# Inline math
+# I want to try and use short notations for speed of use, however in the event this isn't possible
+# these snippets will be those that I use often for efficiency and muscle memory from overleaf.
+# also for reference: A = auto-expand, b = beginning of new line, w = word boundry, r = regex, i = in word expand
 snippet mm "Inline math" A
 $${1}$`!p
 if t[1] and t[1][0] not in [',', '.', '?', '-', ' ']:
@@ -9,16 +11,44 @@ else:
 endsnippet
 
 # Equation environment
-snippet nn "New equation environment" A
+snippet nn "New equation environment" b
 \begin{equation}
     ${1}
 \end{equation}
 $0
 endsnippet
 
-# Fraction
 snippet ff "Fraction" A
 \frac{${1}}{${2}}$0
+endsnippet
+
+snippet \int "Integral" A
+\int_{${1}}^{${2}}$0
+endsnippet
+
+snippet \nab "Nabla"
+\nabla $0
+endsnippet
+
+# greek lettering scheme
+snippet g;a "alpha"
+\alpha $0
+endsnippet
+
+snippet g;b "beta"
+\beta $0
+endsnippet
+
+snippet g;D "Delta"
+\Delta $0
+endsnippet
+
+snippet g;t "theta"
+\theta $0
+endsnippet
+
+snippet g;l "lambda"
+\lambda $0
 endsnippet
 
 # Boilerplate tex document

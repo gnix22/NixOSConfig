@@ -6,6 +6,7 @@ pkgs.mkShell {
     pkgs.python312
     matplotlib
     textual-dev
+    rich
     numpy
     pandas
     pip
