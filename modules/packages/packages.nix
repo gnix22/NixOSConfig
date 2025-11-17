@@ -28,6 +28,7 @@
 	# note taking and such
 	obsidian
   vscode
+  pandoc
 
   # fun things 
   cmatrix
