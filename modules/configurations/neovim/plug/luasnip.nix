@@ -154,67 +154,60 @@ with pkgs.vimPlugins;
             i(0, '...'),
         })
     })
-    -- LaTeX snippets
+
+    -- LaTeX snippets (FIXED with proper escaping)
     ls.add_snippets('tex', {
         -- Inline math with auto-spacing
         snip({trig = "mm", snippetType="autosnippet"}, {
             t("$"),
             i(1),
             t("$"),
-            f(char_after, {1}),
-            i(2)
+            i(0)
         }),
         -- Subscript
-        snip({trig = "_", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "_", snippetType="autosnippet"}, {
             t("_{"),
             i(1),
             t("}"),
             i(0)
         }),
         -- Superscript
-        snip({trig = "^", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "^", snippetType="autosnippet"}, {
             t("^{"),
             i(1),
             t("}"),
             i(0)
         }),
-        -- Angle Brackets
-        snip({trig = "\\angle", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        -- Angle Brackets (FIXED: using [[raw string]] to avoid escaping issues)
+        snip({trig = [[angle]], snippetType="autosnippet"}, {
             t("\\left\\langle{"),
             i(1),
             t("}\\right\\rangle"),
             i(0)
         }),
         -- Braces
-        snip({trig = "\\brace", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = [[brace]], snippetType="autosnippet"}, {
             t("\\left\\{"),
             i(1),
             t("\\right\\}"),
             i(0)
         }),
         -- Parentheses
-        snip({trig = "\\(", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "((", snippetType="autosnippet"}, {
             t("\\left("),
             i(1),
-            t(")\\right("),
+            t("\\right)"),
             i(0)
         }),
         -- Square Brackets
-        snip({trig = "\\squareb", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "[[", snippetType="autosnippet"}, {
             t("\\left["),
             i(1),
             t("\\right]"),
             i(0)
         }),
         -- Fraction
-        snip({trig = "ff", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "ff", snippetType="autosnippet"}, {
             t("\\frac{"),
             i(1),
             t("}{"),
@@ -223,8 +216,7 @@ with pkgs.vimPlugins;
             i(0)
         }),
         -- Integral
-        snip({trig = "\\int", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "intt", snippetType="autosnippet"}, {
             t("\\int_{"),
             i(1),
             t("}^{"),
@@ -233,127 +225,110 @@ with pkgs.vimPlugins;
             i(0)
         }),
         -- Nabla
-        snip({trig = "\\nab", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "nab", snippetType="autosnippet"}, {
             t("\\nabla"),
             i(0)
         }),
-        -- Greek letters
-        snip({trig = "g;a", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        -- Greek letters 
+        snip({trig = "a;", snippetType="autosnippet"}, {
             t("\\alpha"),
             i(0)
         }),
-        snip({trig = "g;b", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "b;", snippetType="autosnippet"}, {
             t("\\beta"),
             i(0)
         }),
-        snip({trig = "g;D", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "D;", snippetType="autosnippet"}, {
             t("\\Delta"),
             i(0)
         }),
-        snip({trig = "g;t", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "t;", snippetType="autosnippet"}, {
             t("\\theta"),
             i(0)
         }),
-        snip({trig = "g;l", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "l;", snippetType="autosnippet"}, {
             t("\\lambda"),
             i(0)
         }),
-        -- Font styles
-        snip({trig = "\\bb", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        
+        -- Font styles (using simpler triggers)
+        snip({trig = "mbb", snippetType="autosnippet"}, {
             t("\\mathbb{"),
             i(1),
             t("}"),
             i(0)
         }),
-        snip({trig = "\\bf", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "mbf", snippetType="autosnippet"}, {
             t("\\mathbf{"),
             i(1),
             t("}"),
             i(0)
         }),
-        snip({trig = "\\cal", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "mcal", snippetType="autosnippet"}, {
             t("\\mathcal{"),
             i(1),
             t("}"),
             i(0)
         }),
-        snip({trig = "\\frak", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "mfrak", snippetType="autosnippet"}, {
             t("\\mathfrak{"),
             i(1),
             t("}"),
             i(0)
         }),
+        
         -- Relations
-        snip({trig = "\\sset", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "sset", snippetType="autosnippet"}, {
             t("\\subseteq"),
             i(0)
         }),
-        snip({trig = "\\rset", regTrig = true, snippetType="autosnippet"}, {
-            f(function(_, snippet) return snippet.captures[1] end),
+        snip({trig = "rset", snippetType="autosnippet"}, {
             t("\\preceq"),
             i(0)
         }),
-        -- Equation environment (beginning of line)
-        snip({trig = "nn", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        
+        -- Equation environment (beginning of line) - MANUAL snippet
+        snip({trig = "eqn", snippetType="snippet"}, {
             t({"\\begin{equation}", "    "}),
             i(1),
             t({"", "\\end{equation}", ""}),
             i(0)
         }),
-        -- Begin environment
-        snip({trig = "\\beg", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        
+        -- Begin environment - MANUAL snippet
+        snip({trig = "beg", snippetType="snippet"}, {
             t("\\begin{"),
             i(1, "environment"),
             t({"}", "    "}),
-            i(0),
+            i(2),
             t({"", "\\end{"}),
             f(function(args) return args[1][1] end, {1}),
-            t("}")
+            t("}"),
+            i(0)
         }),
-        -- Sections
-        snip({trig = "\\sec", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        
+        -- Sections - MANUAL snippets
+        snip({trig = "sec", snippetType="snippet"}, {
             t("\\section{"),
             i(1, "section"),
             t({"}", ""}),
             i(0)
         }),
-        snip({trig = "\\ssec", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        snip({trig = "ssec", snippetType="snippet"}, {
             t("\\subsection{"),
             i(1, "subsection"),
             t({"}", ""}),
             i(0)
         }),
-        snip({trig = "\\sssec", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        snip({trig = "sssec", snippetType="snippet"}, {
             t("\\subsubsection{"),
             i(1, "subsubsection"),
             t({"}", ""}),
             i(0)
         }),
-        -- Document template
-        snip({trig = "doctemplate", snippetType="snippet", condition = function()
-            return vim.fn.col('.') == 1
-        end}, {
+        
+        -- Document template - MANUAL snippet
+        snip({trig = "doctemplate", snippetType="snippet"}, {
             t("\\documentclass["),
             i(1, "12pt"),
             t("]{"),
@@ -395,33 +370,33 @@ with pkgs.vimPlugins;
             t({"", "\\end{document}"})
         })
     })
-    -- ls.add_snippets('rust', {
-    --     snip({
-    --         trig = 'fn ',
-    --         snippetType = 'autosnippet',
-    --     }, {
-    --         t('fn '),
-    --         i(1, 'name'),
-    --         t('('),
-    --         i(2),
-    --         t(') -> '),
-    --         i(3, '()'),
-    --         t({' {', '    '}),
-    --         i(0),
-    --         t({''', '}'}),
-    --     }),
-    --     snip({
-    --         trig = 'fnn',
-    --         snippetType = 'autosnippet',
-    --     }, {
-    --         t('fn '),
-    --         i(1, 'name'),
-    --         t('('),
-    --         i(2),
-    --         t({') {', '    '}),
-    --         i(0),
-    --         t({''', '}'}),
-    --     }),
-    -- })
+        -- ls.add_snippets('rust', {
+        --     snip({
+        --         trig = 'fn ',
+        --         snippetType = 'autosnippet',
+        --     }, {
+        --         t('fn '),
+        --         i(1, 'name'),
+        --         t('('),
+        --         i(2),
+        --         t(') -> '),
+        --         i(3, '()'),
+        --         t({' {', '    '}),
+        --         i(0),
+        --         t({''', '}'}),
+        --     }),
+        --     snip({
+        --         trig = 'fnn',
+        --         snippetType = 'autosnippet',
+        --     }, {
+        --         t('fn '),
+        --         i(1, 'name'),
+        --         t('('),
+        --         i(2),
+        --         t({') {', '    '}),
+        --         i(0),
+        --         t({''', '}'}),
+        --     }),
+        -- })
   '';
 }
