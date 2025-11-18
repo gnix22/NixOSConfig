@@ -4,7 +4,7 @@
   imports = [
     ./fastfetch.nix
     ./git.nix
-    ./neovim.nix
+    ./neovim
     ./kitty.nix
     ./wezterm.nix
   ];

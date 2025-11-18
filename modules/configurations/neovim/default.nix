@@ -131,11 +131,16 @@
         '';
 
       ### plugins ###
-      plugins = (
+      plugins = 
+        let
+          plugDir = ./plug;
+          plugFiles = builtins.attrNames (builtins.readDir plugDir);
+        in
         lib.lists.flatten (
-          inputs.utils.mapFiles (name: import ./plug/${name} { inherit pkgs lib config; }) ./plug
-        )
-      );
+          map 
+            (name: import (plugDir + "/${name}") { inherit pkgs lib config; })
+            plugFiles
+        );
     };
   };
 }
