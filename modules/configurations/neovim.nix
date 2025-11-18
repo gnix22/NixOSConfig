@@ -347,8 +347,8 @@
             ''
               vim.g.UltiSnipsSnippetDirectories={'/home/gnix/nixos/modules/configurations/snippets/'}
               vim.g.UltiSnipsExpandTrigger = '<tab>'
-              vim.g.UltiSnipsJumpForwardTrigger = "jk"
-              vim.g.UltiSnipsJumpBackwardTrigger = "kj"
+              vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
+              vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
             '';
           }
           {

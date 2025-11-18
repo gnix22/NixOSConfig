@@ -12,52 +12,55 @@ else:
 `$2
 endsnippet
 
-snippet ff "Fraction" A
-\frac{${1}}{${2}} $0
+snippet "(^|[^a-zA-Z])ff" "Fraction" rA
+`!p snip.rv = match.group(1)`\frac{${1}}{${2}}$0
 endsnippet
 
-snippet \int "Integral" A
-\int_{${1}}^{${2}}$0
+snippet "(^|[^a-zA-Z])\int" "Integral" rA
+`!p snip.rv = match.group(1)`\int_{${1}}^{${2}}$0
 endsnippet
 
-snippet \nab "Nabla" A
-\nabla $0
+snippet "(^|[^a-zA-Z])\nab" "Nabla" rA
+`!p snip.rv = match.group(1)`\nabla$0
 endsnippet
 
 # greek lettering schemes
-snippet g;a "alpha" A
-\alpha $0
+snippet "(^|[^a-zA-Z])g;a" "alpha" A
+`!p snip.rv = match.group(1)`\alpha$0
 endsnippet
 
-snippet g;b "beta" A
-\beta $0
+snippet "(^|[^a-zA-Z])g;b" "beta" A
+`!p snip.rv = match.group(1)`\beta$0
 endsnippet
 
-snippet g;D "Delta" A
-\Delta $0
+snippet "(^|[^a-zA-Z])g;D" "Delta" A
+`!p snip.rv = match.group(1)`\Delta$0
 endsnippet
 
-snippet g;t "theta" A
-\theta $0
+snippet "(^|[^a-zA-Z])g;t" "theta" rA
+`!p snip.rv = match.group(1)`\theta$0
 endsnippet
 
-snippet g;l "lambda" A
-\lambda $0
+snippet "(^|[^a-zA-Z])g;l" "lambda" rA
+`!p snip.rv = match.group(1)`\lambda$0
 endsnippet
 
 # special font things
-snippet \bb "Mathbb font style" A
-\mathbb{${1}} $0
+snippet "(^|[^a-zA-Z])\bb" "Mathbb font style" rA
+`!p snip.rv = match.group(1)`\mathbb{${1}}$0
 endsnippet
 
-snippet \bf "mathbf style" A
-\mathbf{${1}} $0
+snippet "(^|[^a-zA-Z])\bf" "mathbf style" rA
+`!p snip.rv = match.group(1)`\mathbf{${1}}$0
 endsnippet
 
-snippet \cal "mathcal style" A
-\mathcal{${1}} $0
+snippet "(^|[^a-zA-Z])\cal" "mathcal style" rA
+`!p snip.rv = match.group(1)`\mathcal{${1}}$0
 endsnippet
 
+snippet "(^|[^a-zA-Z])\frak" "mathfrak style" rA
+`!p snip.rv = match.group(1)`\mathfrak{${1}}$0
+endsnippet
 # Equation environment
 snippet nn "New equation environment" b
 \begin{equation}
