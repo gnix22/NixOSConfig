@@ -12,11 +12,35 @@ else:
 `$2
 endsnippet
 
+snippet "(^|[^a-zA-Z])_" "Subscript" rA
+`!p snip.rv = match.group(1)`_{${1}}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])^" "Superscript" rA
+`!p snip.rv = match.group(1)`^{${1}}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])\angle" "Angle Brackets" rA
+`!p snip.rv = match.group(1)`\left\langle{${1}}\right\rangle$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])\brace" "Braces" rA
+`!p snip.rv = match.group(1)`\left\{{${1}}\right\}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z])\(" "Parentheses" rA
+`!p snip.rv = match.group(1)`\left({${1}}\right($0
+endsnippet
+
+snippet "(^|[^a-zA-Z])\squareb" "Square Brackets" rA
+`!p snip.rv = match.group(1)`\left[{${1}}\right]$0
+endsnippet
+
 snippet "(^|[^a-zA-Z])ff" "Fraction" rA
 `!p snip.rv = match.group(1)`\frac{${1}}{${2}}$0
 endsnippet
 
-snippet "(^|[^a-zA-Z])\int" "Integral" rA
+snippet "(^|[^a-zA-Z])\ntgral" "Integral" rA
 `!p snip.rv = match.group(1)`\int_{${1}}^{${2}}$0
 endsnippet
 
@@ -61,6 +85,16 @@ endsnippet
 snippet "(^|[^a-zA-Z])\frak" "mathfrak style" rA
 `!p snip.rv = match.group(1)`\mathfrak{${1}}$0
 endsnippet
+
+# relations 
+snippet "(^|[^a-zA-Z])\sset" "Right facing Subset" rA
+`!p snip.rv = match.group(1)`\subseteq$0
+endsnippet
+
+snippet "(^|[^a-zA-z])\rset" "Right Facing Poset" rA
+`!p snip.rv = match.group(1)`\preceq$0
+endsnippet
+
 # Equation environment
 snippet nn "New equation environment" b
 \begin{equation}
