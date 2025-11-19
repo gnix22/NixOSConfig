@@ -368,6 +368,46 @@ with pkgs.vimPlugins;
             t({"}", ""}),
             i(0),
             t({"", "\\end{document}"})
+        }),
+
+        -- hw macro
+        snip({trig = "doctemplate", snippetType="snippet"}, {
+            t("\\documentclass["),
+            i(1, "12pt"),
+            t("]{"),
+            i(2, "article"),
+            t({"}",
+            "\\usepackage{graphicx} % Use this package to include images",
+            "\\usepackage{amsmath} % A library of many standard math expressions",
+            "\\usepackage[margin=1in]{geometry}% Sets 1in margins.",
+            "\\usepackage{fancyhdr} % Creates headers and footers",
+            "\\usepackage{enumerate}  %These two package give custom labels to a list",
+            "\\usepackage{enumitem}",
+            "\\usepackage{amssymb}",
+            "\\usepackage{amsthm} % for theorem style environments for question and answers for readablity",
+            "\\usepackage{titlesec}",
+            "% Reduce spacing around section headers",
+            "\\titlespacing*{\\section}{0pt}{1ex}{0.5ex}",
+            "\\titlespacing*{\\subsection}{0pt}{0.8ex}{0.4ex}",
+            "\\newtheorem*{thm}{Theorem}",
+            "\\theoremstyle{definition}",
+            "\\newtheorem*{q}{Question}",
+            "\\newtheorem*{ans}{Answer}",
+            "\\title{"}),
+            i(4, "Title"),
+            t({"}", "\\author{"}),
+            i(5, "Author"),
+            t({"}", "\\date{"}),
+            i(6, "\\today"),
+            t({"}",
+            "\\begin{document}",
+            "\\maketitle",
+            "\\vspace{-2em}  % Remove space after title block",
+            "\\section{"}),
+            i(7, "section"),
+            t({"}", ""}),
+            i(0),
+            t({"", "\\end{document}"})
         })
     })
         -- ls.add_snippets('rust', {
