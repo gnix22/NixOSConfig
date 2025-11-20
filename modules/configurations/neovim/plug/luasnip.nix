@@ -155,13 +155,20 @@ with pkgs.vimPlugins;
         })
     })
 
-    -- LaTeX snippets (FIXED with proper escaping)
+-- LaTeX snippets (FIXED with proper escaping)
     ls.add_snippets('tex', {
         -- Inline math with auto-spacing
         snip({trig = "mm", snippetType="autosnippet"}, {
             t("$"),
             i(1),
             t("$"),
+            i(0)
+        }),
+        -- Display math mode
+        snip({trig = "dm", snippetType="autosnippet"}, {
+            t({"\\[", "    "}),
+            i(1),
+            t({"", "\\]"}),
             i(0)
         }),
         -- Subscript
@@ -206,11 +213,41 @@ with pkgs.vimPlugins;
             t("\\right]"),
             i(0)
         }),
+        -- Absolute value
+        snip({trig = "abs", snippetType="autosnippet"}, {
+            t("\\left|"),
+            i(1),
+            t("\\right|"),
+            i(0)
+        }),
+        -- Norm
+        snip({trig = "norm", snippetType="autosnippet"}, {
+            t("\\left\\|"),
+            i(1),
+            t("\\right\\|"),
+            i(0)
+        }),
         -- Fraction
         snip({trig = "ff", snippetType="autosnippet"}, {
             t("\\frac{"),
             i(1),
             t("}{"),
+            i(2),
+            t("}"),
+            i(0)
+        }),
+        -- Square root
+        snip({trig = "sq", snippetType="autosnippet"}, {
+            t("\\sqrt{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
+        -- Nth root
+        snip({trig = "nrt", snippetType="autosnippet"}, {
+            t("\\sqrt["),
+            i(1, "n"),
+            t("]{"),
             i(2),
             t("}"),
             i(0)
@@ -224,9 +261,84 @@ with pkgs.vimPlugins;
             t("}"),
             i(0)
         }),
+        snip({trig = "dintt", snippetType="autosnippet"}, {
+            t("\\int_{"),
+            i(1),
+            t("}^{"),
+            i(2),
+            t("}"),
+            i(0)
+        }),
+        -- Big integral with display style
+        snip({trig = "bint", snippetType="autosnippet"}, {
+            t("\\displaystyle\\int_{"),
+            i(1),
+            t("}^{"),
+            i(2),
+            t("}"),
+            i(0)
+        }),
+        -- Sum
+        snip({trig = "sum", snippetType="autosnippet"}, {
+            t("\\sum_{"),
+            i(1, "i=1"),
+            t("}^{"),
+            i(2, "n"),
+            t("}"),
+            i(0)
+        }),
+        -- Product
+        snip({trig = "prod", snippetType="autosnippet"}, {
+            t("\\prod_{"),
+            i(1, "i=1"),
+            t("}^{"),
+            i(2, "n"),
+            t("}"),
+            i(0)
+        }),
+        -- Limit
+        snip({trig = "lim", snippetType="autosnippet"}, {
+            t("\\lim_{"),
+            i(1, "n\\to\\infty"),
+            t("}"),
+            i(0)
+        }),
+        -- Partial derivative
+        snip({trig = "part", snippetType="autosnippet"}, {
+            t("\\frac{\\partial "),
+            i(1),
+            t("}{\\partial "),
+            i(2),
+            t("}"),
+            i(0)
+        }),
+        -- Derivative
+        snip({trig = "dv", snippetType="autosnippet"}, {
+            t("\\frac{d"),
+            i(1),
+            t("}{d"),
+            i(2),
+            t("}"),
+            i(0)
+        }),
         -- Nabla
         snip({trig = "nab", snippetType="autosnippet"}, {
             t("\\nabla"),
+            i(0)
+        }),
+        -- Text in math mode
+        snip({trig = "txt", snippetType="autosnippet"}, {
+            t("\\text{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
+        snip({trig = "ssin", snippetType="autosnippet"}, {
+            t("\\sin"),
+            i(0)
+        }),
+        snip({trig = "ccos", snippetType="autosnippet"}, {
+            t("\\cos"),
             i(0)
         }),
         -- Greek letters 
@@ -238,8 +350,24 @@ with pkgs.vimPlugins;
             t("\\beta"),
             i(0)
         }),
+        snip({trig = "g;", snippetType="autosnippet"}, {
+            t("\\gamma"),
+            i(0)
+        }),
+        snip({trig = "d;", snippetType="autosnippet"}, {
+            t("\\delta"),
+            i(0)
+        }),
         snip({trig = "D;", snippetType="autosnippet"}, {
             t("\\Delta"),
+            i(0)
+        }),
+        snip({trig = "e;", snippetType="autosnippet"}, {
+            t("\\epsilon"),
+            i(0)
+        }),
+        snip({trig = "ve;", snippetType="autosnippet"}, {
+            t("\\varepsilon"),
             i(0)
         }),
         snip({trig = "t;", snippetType="autosnippet"}, {
@@ -248,6 +376,34 @@ with pkgs.vimPlugins;
         }),
         snip({trig = "l;", snippetType="autosnippet"}, {
             t("\\lambda"),
+            i(0)
+        }),
+        snip({trig = "m;", snippetType="autosnippet"}, {
+            t("\\mu"),
+            i(0)
+        }),
+        snip({trig = "r;", snippetType="autosnippet"}, {
+            t("\\rho"),
+            i(0)
+        }),
+        snip({trig = "s;", snippetType="autosnippet"}, {
+            t("\\sigma"),
+            i(0)
+        }),
+        snip({trig = "p;", snippetType="autosnippet"}, {
+            t("\\phi"),
+            i(0)
+        }),
+        snip({trig = "vp;", snippetType="autosnippet"}, {
+            t("\\varphi"),
+            i(0)
+        }),
+        snip({trig = "o;", snippetType="autosnippet"}, {
+            t("\\omega"),
+            i(0)
+        }),
+        snip({trig = "O;", snippetType="autosnippet"}, {
+            t("\\Omega"),
             i(0)
         }),
         
@@ -276,17 +432,100 @@ with pkgs.vimPlugins;
             t("}"),
             i(0)
         }),
-        
+        -- Vectors and decorations
+        snip({trig = "vec", snippetType="autosnippet"}, {
+            t("\\vec{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
+        snip({trig = "bar", snippetType="autosnippet"}, {
+            t("\\bar{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
+        snip({trig = "hat", snippetType="autosnippet"}, {
+            t("\\hat{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
+        snip({trig = "tilde", snippetType="autosnippet"}, {
+            t("\\tilde{"),
+            i(1),
+            t("}"),
+            i(0)
+        }),
         -- Relations
         snip({trig = "sset", snippetType="autosnippet"}, {
             t("\\subseteq"),
+            i(0)
+        }),
+        snip({trig = "suset", snippetType="autosnippet"}, {
+            t("\\supseteq"),
             i(0)
         }),
         snip({trig = "rset", snippetType="autosnippet"}, {
             t("\\preceq"),
             i(0)
         }),
-        
+        snip({trig = "leq", snippetType="autosnippet"}, {
+            t("\\leq"),
+            i(0)
+        }),
+        snip({trig = "geq", snippetType="autosnippet"}, {
+            t("\\geq"),
+            i(0)
+        }),
+        snip({trig = "neq", snippetType="autosnippet"}, {
+            t("\\neq"),
+            i(0)
+        }),
+        -- Set operations
+        snip({trig = "inn", snippetType="autosnippet"}, {
+            t("\\in"),
+            i(0)
+        }),
+        snip({trig = "notin", snippetType="autosnippet"}, {
+            t("\\notin"),
+            i(0)
+        }),
+        snip({trig = "cup", snippetType="autosnippet"}, {
+            t("\\cup"),
+            i(0)
+        }),
+        snip({trig = "cap", snippetType="autosnippet"}, {
+            t("\\cap"),
+            i(0)
+        }),
+        -- Arrows
+        snip({trig = "->", snippetType="autosnippet"}, {
+            t("\\to"),
+            i(0)
+        }),
+        snip({trig = "=>", snippetType="autosnippet"}, {
+            t("\\implies"),
+            i(0)
+        }),
+        snip({trig = "<=>", snippetType="autosnippet"}, {
+            t("\\iff"),
+            i(0)
+        }),
+        -- Dots
+        snip({trig = "...", snippetType="autosnippet"}, {
+            t("\\ldots"),
+            i(0)
+        }),
+        snip({trig = "cdot", snippetType="autosnippet"}, {
+            t("\\cdot"),
+            i(0)
+        }),
+        -- Infinity
+        snip({trig = "oo", snippetType="autosnippet"}, {
+            t("\\infty"),
+            i(0)
+        }),
         -- Equation environment (beginning of line) - MANUAL snippet
         snip({trig = "eqn", snippetType="snippet"}, {
             t({"\\begin{equation}", "    "}),
@@ -294,7 +533,32 @@ with pkgs.vimPlugins;
             t({"", "\\end{equation}", ""}),
             i(0)
         }),
-        
+        -- Align environment
+        snip({trig = "ali", snippetType="snippet"}, {
+            t({"\\begin{align}", "    "}),
+            i(1),
+            t({"", "\\end{align}"}),
+            i(0)
+        }),
+        snip({trig = "eqnarray", snippetType="snippet"}, {
+            t({"\\begin{eqnarray}", "    "}),
+            i(1),
+            t({"", "\\end{eqnarray}", ""}),
+            i(0)
+        })
+        -- Cases environment
+        snip({trig = "case", snippetType="snippet"}, {
+            t({"\\begin{cases}", "    "}),
+            i(1),
+            t({" & ", ""}),
+            i(2),
+            t({" \\\\", "    "}),
+            i(3),
+            t({" & ", ""}),
+            i(4),
+            t({"", "\\end{cases}"}),
+            i(0)
+        }),
         -- Begin environment - MANUAL snippet
         snip({trig = "beg", snippetType="snippet"}, {
             t("\\begin{"),
@@ -306,7 +570,11 @@ with pkgs.vimPlugins;
             t("}"),
             i(0)
         }),
-        
+        -- Item (for lists)
+        snip({trig = "it", snippetType="snippet"}, {
+            t("\\item "),
+            i(0)
+        }),
         -- Sections - MANUAL snippets
         snip({trig = "sec", snippetType="snippet"}, {
             t("\\section{"),
@@ -326,7 +594,7 @@ with pkgs.vimPlugins;
             t({"}", ""}),
             i(0)
         }),
-        
+    })
         -- Document template - MANUAL snippet
         snip({trig = "doctemplate", snippetType="snippet"}, {
             t("\\documentclass["),
@@ -386,12 +654,18 @@ with pkgs.vimPlugins;
             "\\usepackage{amssymb}",
             "\\usepackage{amsthm} % for theorem style environments for question and answers for readablity",
             "\\usepackage{titlesec}",
+            "% Customize section font size",
+            "\\titleformat*{\\section}{\\fontsize{14pt}{16pt}\\bfseries\\selectfont}",
+            "% Customize subsection font size",
+            "\\titleformat*{\\subsection}{\\fontsize{12pt}{14pt}\\bfseries\\selectfont}",
             "% Reduce spacing around section headers",
             "\\titlespacing*{\\section}{0pt}{1ex}{0.5ex}",
             "\\titlespacing*{\\subsection}{0pt}{0.8ex}{0.4ex}",
             "\\pagestyle{fancy}",
             "\\fancyhead[l]{Garrett Nix}",
-            "\\fancyhead[c]{MATH 301 HW \\#11}",
+            "\\fancyhead[c]{"}),
+            i(3, "Sub. Desc."),
+            t({"}",
             "\\fancyhead[r]{\today}",
             "\\fancyfoot[c]{\\thepage}",
             "\\renewcommand{\\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header",
